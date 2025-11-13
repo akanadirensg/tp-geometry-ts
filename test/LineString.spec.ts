@@ -8,6 +8,7 @@ describe("test LineString", () => {
         const l = new LineString();
         expect(l.getNumPoints()).to.equal(0);
         expect(l.getType()).to.equal("LineString");
+        expect(l.isEmpty()).to.be.true;
     });
     it("test constructor with coordinates", () => {
         const p1 = new Point([3.0,4.0]);
@@ -17,6 +18,7 @@ describe("test LineString", () => {
         expect(l.getNumPoints()).to.equal(2);
         expect(l.getPointN(0)).to.equal(p1);
         expect(l.getPointN(1)).to.equal(p2);
+        expect(l.isEmpty()).to.be.false;
 
     });
 });

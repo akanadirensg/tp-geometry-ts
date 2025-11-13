@@ -23,6 +23,16 @@ describe("test Envelope", () => {
         
 
     });
+    it("test envelope vide avec EnvelopeBuilder", () => {        
+        const builder = new EnvelopeBuilder();
+        const envelope_vide = builder.build()
+        expect(envelope_vide.isEmpty()).to.be.true;
+        expect(Number.isNaN(envelope_vide.getXMax()));
+        expect(Number.isNaN(envelope_vide.getYMax()));
+        expect(Number.isNaN(envelope_vide.getXMin()));
+        expect(Number.isNaN(envelope_vide.getYMin()));
+        expect(envelope_vide.toString()).to.equal("");
+    });
     it("test envelope vide", () => {        
         const envelope_vide=new Envelope();
         expect(envelope_vide.isEmpty()).to.be.true;

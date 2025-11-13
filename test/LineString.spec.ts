@@ -21,5 +21,19 @@ describe("test LineString", () => {
         expect(l.isEmpty()).to.be.false;
 
     });
+
+    it("test translate linestring", () => {
+        const p1 = new Point([3.0,4.0]);
+        const p2 = new Point([1.0,2.0]);
+
+        const l= new LineString([p1,p2]);
+        l.translate(1.0,1.5)
+        expect(l.getPointN(0).getCoordinate()).to.deep.equal([4.0,5.5]);
+        expect(l.getPointN(1).getCoordinate()).to.deep.equal([2.0,3.5]);
+
+        const l_vide=new LineString();
+        l_vide.translate(1.0,1.5);
+        expect(l_vide.isEmpty()).to.be.true;
+    });
 });
 

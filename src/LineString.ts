@@ -15,6 +15,13 @@ export default class LineString implements Geometry {
       return this.points.length === 0;
   }
 
+  translate(dx: number, dy: number): void {
+    if (!this.isEmpty()){
+    for(let point of this.points){
+      point.translate(dx,dy)
+    }}
+  }
+
   getNumPoints(): number {
     return this.points.length;
   }

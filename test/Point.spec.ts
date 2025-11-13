@@ -31,5 +31,14 @@ describe("test Point", () => {
         p_avec_x.translate(1.0,1.5)
         expect(p_avec_x.getCoordinate()).to.deep.equal([3.0]);
     });
+    it("test clone point", () => {
+        const p = new Point([3.0,4.0]);
+        const p_copy = p.clone()
+        expect(p.getCoordinate()).to.deep.equal(p_copy.getCoordinate());
+
+        const p_vide = new Point();
+        const p_vide_copy = p_vide.clone()
+        expect(p_vide.getCoordinate()).to.deep.equal(p_vide_copy.getCoordinate());
+    });
 });
 

@@ -6,10 +6,10 @@ export default class WktWriter {
     write(geometry?: Geometry): string {
         if (geometry instanceof Point) {
             // traiter le cas Point
-            return geometry.isEmpty() ? "POINT(3.0 4.0)" :"POINT("+geometry.x()+" "+geometry.y()+")"
+            return geometry.isEmpty() ? "POINT EMPTY" :"POINT("+geometry.x()+" "+geometry.y()+")"
         } else if (geometry instanceof LineString) {
             // traiter le cas LineString
-            if(geometry.isEmpty()) return "LINESTRING(0.0 0.0,1.0 1.0,5.0 5.0)";
+            if(geometry.isEmpty()) return "LINESTRING EMPTY";
 
             let wkt: string[] = [];
             for (let i=0; i<geometry.getNumPoints(); i++) {

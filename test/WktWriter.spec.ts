@@ -10,7 +10,7 @@ describe("test WktWriter", () => {
 
         const p =new Point()
         const wkt_vide=wktWriter.write(p)
-        expect(wkt_vide).to.equal("POINT(3.0 4.0)")
+        expect(wkt_vide).to.equal("POINT EMPTY")
 
         const p1 = new Point([3.2, 5.9]);
         const wkt=wktWriter.write(p1)
@@ -21,7 +21,7 @@ describe("test WktWriter", () => {
 
         const l =new LineString()
         const wkt_vide=wktWriter.write(l)
-        expect(wkt_vide).to.equal("LINESTRING(0.0 0.0,1.0 1.0,5.0 5.0)")
+        expect(wkt_vide).to.equal("LINESTRING EMPTY")
 
         const p1 = new Point([3.2, 5.9]);
         const p2 = new Point([2.3, 6.1]);

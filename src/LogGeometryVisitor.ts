@@ -1,7 +1,8 @@
 import Point from "./Point"
 import LineString from "./LineString"
+import GeometryVisitor from "./GeometryVisitor"
 
-export default class LogGeometryVisitor {
+export default class LogGeometryVisitor implements GeometryVisitor {
     constructor(
         private log=console.log
     ){

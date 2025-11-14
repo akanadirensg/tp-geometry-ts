@@ -2,6 +2,7 @@ import Coordinate from "./Coordinate";
 import Envelope from "./Envelope";
 import EnvelopeBuilder from "./EnvelopeBuilder";
 import Geometry from "./Geometry";
+import GeometryVisitor from "./GeometryVisitor";
 
 export default class Point implements Geometry {
   private coordinate?: Coordinate; // ? dit que peut etre non definie
@@ -26,6 +27,10 @@ export default class Point implements Geometry {
 
   clone(): Point {
       return new Point([...this.coordinate])
+  }
+
+  accept(visitor: GeometryVisitor): void {
+      visitor.visitPoint(this);
   }
 
   getEnvelope(): Envelope {

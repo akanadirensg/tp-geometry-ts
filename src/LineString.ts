@@ -2,6 +2,7 @@ import Point from "./Point"
 import Geometry from "./Geometry";
 import Envelope from "./Envelope";
 import EnvelopeBuilder from "./EnvelopeBuilder";
+import GeometryVisitor from "./GeometryVisitor";
 
 export default class LineString implements Geometry {
   private points?: Array<Point>;
@@ -31,6 +32,10 @@ export default class LineString implements Geometry {
       copy_points.push(point.clone());
     }
     return new LineString(copy_points);
+  }
+
+  accept(visitor: GeometryVisitor): void {
+      visitor.visitLineString(this);
   }
 
   getEnvelope(): Envelope {

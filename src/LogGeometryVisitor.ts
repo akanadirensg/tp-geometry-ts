@@ -1,28 +1,37 @@
 import Point from "./Point"
 import LineString from "./LineString"
 import GeometryVisitor from "./GeometryVisitor"
+import GeometryCollection from "./GeometryCollection"
 
 export default class LogGeometryVisitor implements GeometryVisitor {
     constructor(
-        private log=console.log
-    ){
+        private log = console.log
+    ) {
     }
 
-    visitPoint(g: Point){
-        if(g.isEmpty()){
+    visitPoint(g: Point) {
+        if (g.isEmpty()) {
             this.log("Je suis un point vide.")
 
-        }else {
-            this.log("Je suis un point avec x="+g.x()+" et y="+g.y()+".")
+        } else {
+            this.log("Je suis un point avec x=" + g.x() + " et y=" + g.y() + ".")
         }
     }
 
-        visitLineString(l: LineString){
-        if(l.isEmpty()){
+    visitLineString(l: LineString) {
+        if (l.isEmpty()) {
             this.log("Je suis une polyligne vide.")
 
-        }else {
-            this.log("Je suis une polyligne définie par "+l.getNumPoints()+" point(s).")
+        } else {
+            this.log("Je suis une polyligne définie par " + l.getNumPoints() + " point(s).")
+        }
+    }
+
+    visitGeometryCollection(geometryCollection: GeometryCollection): void {
+        if (geometryCollection.isEmpty()) {
+            this.log("Je suis une collection vide.")
+        } else {
+            this.log("Je suis une collection définie par " + geometryCollection.getNumGeometries() + " point(s)/lignes(s).")
         }
     }
 }

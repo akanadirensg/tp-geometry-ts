@@ -20,8 +20,6 @@ describe("test Envelope", () => {
         const envlope = new Envelope([0.0,0.0],[2.0,3.0]);
         expect(result.toString()).to.equal(envlope.toString())
         expect(envlope.toString()).to.equal("bottomLeft: 0,0, topRight: 2,3");
-        
-
     });
     it("test envelope vide avec EnvelopeBuilder", () => {        
         const builder = new EnvelopeBuilder();
@@ -42,8 +40,6 @@ describe("test Envelope", () => {
         expect(Number.isNaN(envelope_vide.getYMin()));
         expect(envelope_vide.toString()).to.equal("");
     });
-
-
 
 });
 

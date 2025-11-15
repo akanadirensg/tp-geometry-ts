@@ -3,7 +3,7 @@ import LineString from "./LineString"
 import GeometryVisitor from "./GeometryVisitor"
 import GeometryCollection from "./GeometryCollection"
 
-export default class LogGeometryVisitor implements GeometryVisitor {
+export default class LogGeometryVisitor implements GeometryVisitor<void> {
     constructor(
         private log = console.log
     ) {

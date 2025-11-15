@@ -35,8 +35,8 @@ export default class LineString extends AbstractGeometry {
     return new LineString(copy_points);
   }
 
-  accept(visitor: GeometryVisitor): void {
-      visitor.visitLineString(this);
+  accept<T>(visitor: GeometryVisitor<T>): T {
+      return visitor.visitLineString(this);
   }
 
 

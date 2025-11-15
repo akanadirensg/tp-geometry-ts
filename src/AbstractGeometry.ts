@@ -14,7 +14,7 @@ export default abstract class AbstractGeometry implements Geometry {
         this.accept(visitor);
         return visitor.build();
     };
-    abstract accept(visitor: GeometryVisitor): void;
+    abstract accept<T>(visitor: GeometryVisitor<T>): T;
     asText(): string {
         const visitor = new WktVisitor();
         this.accept(visitor);
